@@ -29,14 +29,14 @@ var peopleSorter = function (people, sortBy) {
                 console.error("First argument should be an array of objects.");
                 return 0;
             }
-        }
-        //Check that the sort parameter is part of the people object
-        for (var i in sortBy) {
-            if (typeof (people[i][sortBy[i]]) === "undefined") {
-                console.error(sortBy[i] + " is not valid. Please enter a valid sort parameter.");
-                return 0;
+            //Check that the sort parameter is part of the people object
+            for (var j in sortBy) {
+                if (typeof (people[i][sortBy[j]]) === "undefined") {
+                    console.error(sortBy[j] + " is not valid. Please enter a valid sort parameter.");
+                }
             }
         }
+       
     } //end of Error checking
 
     //return value -1 means a comes first, 0 the order stays the same, and 1 means b comes first
