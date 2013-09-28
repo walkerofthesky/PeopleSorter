@@ -12,6 +12,33 @@
 //peopleSorter takes an array of people objects and an array of sorting parameters
 var peopleSorter = function (people, sortBy) {
 
+    //Error checking
+    //Check that the first argument is an array
+    if (!Array.isArray(people)) {
+        console.error("First argument should be an array of objects.");
+        return 0;
+    }
+    else if (!Array.isArray(sortBy)) {
+        console.error("Second argument should be an array of sort parameters.");
+        return 0;
+    }
+    else {
+        //and that each member of the array is an object
+        for (var i in people) {
+            if (typeof (people[i]) !== "object") {
+                console.error("First argument should be an array of objects.");
+                return 0;
+            }
+        }
+        //Check that the sort parameter is part of the people object
+        for (var i in sortBy) {
+            if (typeof (people[i][sortBy[i]]) === "undefined") {
+                console.error(sortBy[i] + " is not valid. Please enter a valid sort parameter.");
+                return 0;
+            }
+        }
+    } //end of Error checking
+
     //return value -1 means a comes first, 0 the order stays the same, and 1 means b comes first
     function attrSort(a, b) {
         //loop through the sorting parameters

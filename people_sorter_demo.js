@@ -53,9 +53,11 @@ var people = [
 ];
 
 //call the sortPeople function with supplied people object array and list of sort parameters.
-peopleSorter(people, [ "name", "birthDayNumber", "birthCountry" ]);
+var success = peopleSorter(people, [ "name", "birthDayNumber", "birthCountry" ]);
 
 //print the ordered list of people to the console
-for (var i in people) {
-    console.log(people[i].birthDayNumber + " " + people[i].name + " was born in " + people[i].birthCountry);
+if (success) {
+    for (var i in people) {
+        console.log(people[i].birthDayNumber + " " + people[i].name + " was born in " + people[i].birthCountry);
+    }
 }
